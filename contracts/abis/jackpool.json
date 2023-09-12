@@ -38,6 +38,97 @@
     "type": "event"
 },
 {
+    "inputs": [{
+            "internalType": "uint32",
+            "name": "paRate",
+            "type": "uint32"
+        },
+        {
+            "internalType": "uint32",
+            "name": "pbRate",
+            "type": "uint32"
+        },
+        {
+            "internalType": "uint32",
+            "name": "pcRate",
+            "type": "uint32"
+        },
+        {
+            "internalType": "uint32",
+            "name": "pdRate",
+            "type": "uint32"
+        },
+        {
+            "internalType": "uint32",
+            "name": "peRate",
+            "type": "uint32"
+        },
+        {
+            "internalType": "uint32",
+            "name": "pfRate",
+            "type": "uint32"
+        }
+    ],
+    "name": "changeDistrRate",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+},
+{
+    "inputs": [{
+            "internalType": "uint32",
+            "name": "pa",
+            "type": "uint32"
+        },
+        {
+            "internalType": "uint32",
+            "name": "pb",
+            "type": "uint32"
+        },
+        {
+            "internalType": "uint32",
+            "name": "pc",
+            "type": "uint32"
+        },
+        {
+            "internalType": "uint32",
+            "name": "pd",
+            "type": "uint32"
+        },
+        {
+            "internalType": "uint32",
+            "name": "pe",
+            "type": "uint32"
+        },
+        {
+            "internalType": "uint32",
+            "name": "pf",
+            "type": "uint32"
+        }
+    ],
+    "name": "changeProb",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+},
+{
+    "inputs": [{
+            "internalType": "bytes32",
+            "name": "role",
+            "type": "bytes32"
+        },
+        {
+            "internalType": "address",
+            "name": "account",
+            "type": "address"
+        }
+    ],
+    "name": "grantRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+},
+{
     "anonymous": false,
     "inputs": [{
             "indexed": true,
@@ -74,6 +165,13 @@
     "type": "event"
 },
 {
+    "inputs": [],
+    "name": "pause",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+},
+{
     "anonymous": false,
     "inputs": [{
         "indexed": false,
@@ -83,6 +181,83 @@
     }],
     "name": "Paused",
     "type": "event"
+},
+{
+    "inputs": [{
+            "internalType": "address",
+            "name": "account",
+            "type": "address"
+        },
+        {
+            "internalType": "uint32",
+            "name": "factor",
+            "type": "uint32"
+        },
+        {
+            "internalType": "uint256",
+            "name": "minAmount",
+            "type": "uint256"
+        }
+    ],
+    "name": "play",
+    "outputs": [{
+            "internalType": "uint32",
+            "name": "pot",
+            "type": "uint32"
+        },
+        {
+            "internalType": "bool",
+            "name": "win",
+            "type": "bool"
+        }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+},
+{
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+    }],
+    "name": "receiveFromContract",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+},
+{
+    "inputs": [{
+            "internalType": "bytes32",
+            "name": "role",
+            "type": "bytes32"
+        },
+        {
+            "internalType": "address",
+            "name": "account",
+            "type": "address"
+        }
+    ],
+    "name": "renounceRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+},
+{
+    "inputs": [{
+            "internalType": "bytes32",
+            "name": "role",
+            "type": "bytes32"
+        },
+        {
+            "internalType": "address",
+            "name": "account",
+            "type": "address"
+        }
+    ],
+    "name": "revokeRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
 },
 {
     "anonymous": false,
@@ -157,6 +332,13 @@
     "type": "event"
 },
 {
+    "inputs": [],
+    "name": "unpause",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+},
+{
     "anonymous": false,
     "inputs": [{
         "indexed": false,
@@ -172,6 +354,21 @@
     "type": "fallback"
 },
 {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+    }],
+    "name": "updateFromContract",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+},
+{
+    "stateMutability": "payable",
+    "type": "receive"
+},
+{
     "inputs": [],
     "name": "ADMIN_ROLE",
     "outputs": [{
@@ -180,91 +377,6 @@
         "type": "bytes32"
     }],
     "stateMutability": "view",
-    "type": "function"
-},
-{
-    "inputs": [],
-    "name": "DEFAULT_ADMIN_ROLE",
-    "outputs": [{
-        "internalType": "bytes32",
-        "name": "",
-        "type": "bytes32"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-},
-{
-    "inputs": [{
-            "internalType": "uint32",
-            "name": "paRate",
-            "type": "uint32"
-        },
-        {
-            "internalType": "uint32",
-            "name": "pbRate",
-            "type": "uint32"
-        },
-        {
-            "internalType": "uint32",
-            "name": "pcRate",
-            "type": "uint32"
-        },
-        {
-            "internalType": "uint32",
-            "name": "pdRate",
-            "type": "uint32"
-        },
-        {
-            "internalType": "uint32",
-            "name": "peRate",
-            "type": "uint32"
-        },
-        {
-            "internalType": "uint32",
-            "name": "pfRate",
-            "type": "uint32"
-        }
-    ],
-    "name": "changeDistrRate",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-},
-{
-    "inputs": [{
-            "internalType": "uint32",
-            "name": "pa",
-            "type": "uint32"
-        },
-        {
-            "internalType": "uint32",
-            "name": "pb",
-            "type": "uint32"
-        },
-        {
-            "internalType": "uint32",
-            "name": "pc",
-            "type": "uint32"
-        },
-        {
-            "internalType": "uint32",
-            "name": "pd",
-            "type": "uint32"
-        },
-        {
-            "internalType": "uint32",
-            "name": "pe",
-            "type": "uint32"
-        },
-        {
-            "internalType": "uint32",
-            "name": "pf",
-            "type": "uint32"
-        }
-    ],
-    "name": "changeProb",
-    "outputs": [],
-    "stateMutability": "nonpayable",
     "type": "function"
 },
 {
@@ -343,6 +455,17 @@
 },
 {
     "inputs": [],
+    "name": "DEFAULT_ADMIN_ROLE",
+    "outputs": [{
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+},
+{
+    "inputs": [],
     "name": "endtoken",
     "outputs": [{
         "internalType": "contract IERC_20",
@@ -379,23 +502,6 @@
             "type": "address"
         }
     ],
-    "name": "grantRole",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-},
-{
-    "inputs": [{
-            "internalType": "bytes32",
-            "name": "role",
-            "type": "bytes32"
-        },
-        {
-            "internalType": "address",
-            "name": "account",
-            "type": "address"
-        }
-    ],
     "name": "hasRole",
     "outputs": [{
         "internalType": "bool",
@@ -407,13 +513,6 @@
 },
 {
     "inputs": [],
-    "name": "pause",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-},
-{
-    "inputs": [],
     "name": "paused",
     "outputs": [{
         "internalType": "bool",
@@ -421,33 +520,6 @@
         "type": "bool"
     }],
     "stateMutability": "view",
-    "type": "function"
-},
-{
-    "inputs": [{
-            "internalType": "address",
-            "name": "account",
-            "type": "address"
-        },
-        {
-            "internalType": "uint32",
-            "name": "factor",
-            "type": "uint32"
-        }
-    ],
-    "name": "play",
-    "outputs": [{
-            "internalType": "uint32",
-            "name": "pot",
-            "type": "uint32"
-        },
-        {
-            "internalType": "bool",
-            "name": "win",
-            "type": "bool"
-        }
-    ],
-    "stateMutability": "nonpayable",
     "type": "function"
 },
 {
@@ -489,51 +561,6 @@
 },
 {
     "inputs": [{
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-    }],
-    "name": "receiveFromContract",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-},
-{
-    "inputs": [{
-            "internalType": "bytes32",
-            "name": "role",
-            "type": "bytes32"
-        },
-        {
-            "internalType": "address",
-            "name": "account",
-            "type": "address"
-        }
-    ],
-    "name": "renounceRole",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-},
-{
-    "inputs": [{
-            "internalType": "bytes32",
-            "name": "role",
-            "type": "bytes32"
-        },
-        {
-            "internalType": "address",
-            "name": "account",
-            "type": "address"
-        }
-    ],
-    "name": "revokeRole",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-},
-{
-    "inputs": [{
         "internalType": "bytes4",
         "name": "interfaceId",
         "type": "bytes4"
@@ -546,27 +573,5 @@
     }],
     "stateMutability": "view",
     "type": "function"
-},
-{
-    "inputs": [],
-    "name": "unpause",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-},
-{
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-    }],
-    "name": "updateFromContract",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-},
-{
-    "stateMutability": "payable",
-    "type": "receive"
 }
 ]

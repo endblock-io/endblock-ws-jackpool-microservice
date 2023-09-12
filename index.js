@@ -41,22 +41,18 @@ setInterval(async() => {
 
 io.on('connection', ( socket ) => {
     console.log(socket.id)
-
-    
-    setInterval(async() => {
-
-        try {
-        io.emit('get-jackpool', JSON.stringify(response))
-            // console.log(response.lottoPool.PreviousRoundResponse)
-        } catch (error) {
-            console.log(error)
-        }
-
-    }, 2500);
-
-
-
 });
+
+setInterval(async() => {
+
+    try {
+    io.emit('get-jackpool', JSON.stringify(response))
+        console.log(response)
+    } catch (error) {
+        console.log(error)
+    }
+
+}, 2500);
 
 server.listen(process.env.PORT,async()=>{
     console.log('port:',process.env.PORT)
